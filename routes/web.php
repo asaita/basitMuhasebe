@@ -1,6 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\todoController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route; 
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect()->route('index');
 })->name('/');
+
+Route::get('to-do',[todoController::class,'todo'])->name('to-do');
+
 
 Route::prefix('starter-kit')->group(function () {
     Route::view('index', 'admin.color-version.index')->name('index');
