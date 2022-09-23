@@ -24,6 +24,8 @@ Route::get('/', function () {
 })->name('/');
 
 Route::get('to-do',[todoController::class,'todo'])->name('to-do');
+Route::delete('sil/{id}',[todoController::class,'sil'])->name('sil');
+
 
 
 Route::prefix('starter-kit')->group(function () {
