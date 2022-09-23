@@ -46,110 +46,23 @@
 	                                </div>
 	                                <div class="todo-list-body">
 	                                    <ul id="todo-list">
-	                                        <li class="task">
+										@foreach($todolist as $item)
+										<li class="{{$item->isDone ? 'task' : 'completed task'}}">
 	                                            <div class="task-container">
-	                                                <h4 class="task-label">Weekly Bigbazar Shopping</h4>
+	                                                <h4 class="task-label">{{$item->todo}}</h4>
 	                                                <span class="task-action-btn">
 	                                                    <span class="action-box large delete-btn" title="Delete Task">
 	                                                        <i class="icon"><i class="icon-trash"></i></i>
 	                                                    </span>
+														
 	                                                    <span class="action-box large complete-btn" title="Mark Complete">
 	                                                        <i class="icon"><i class="icon-check"></i></i>
 	                                                    </span>
 	                                                </span>
 	                                            </div>
 	                                        </li>
-	                                        <li class="task">
-	                                            <div class="task-container">
-	                                                <h4 class="task-label">Go Outside Picnic on Sunday</h4>
-	                                                <span class="task-action-btn">
-	                                                    <span class="action-box large delete-btn" title="Delete Task">
-	                                                        <i class="icon"><i class="icon-trash"></i></i>
-	                                                    </span>
-	                                                    <span class="action-box large complete-btn" title="Mark Complete">
-	                                                        <i class="icon"><i class="icon-check"></i></i>
-	                                                    </span>
-	                                                </span>
-	                                            </div>
-	                                        </li>
-	                                        <li class="completed task">
-	                                            <div class="task-container">
-	                                                <h4 class="task-label">Write a blog post</h4>
-	                                                <span class="task-action-btn">
-	                                                    <span class="action-box large delete-btn" title="Delete Task">
-	                                                        <i class="icon"><i class="icon-trash"></i></i>
-	                                                    </span>
-	                                                    <span class="action-box large complete-btn" title="Mark Complete">
-	                                                        <i class="icon"><i class="icon-check"></i></i>
-	                                                    </span>
-	                                                </span>
-	                                            </div>
-	                                        </li>
-	                                        <li class="task">
-	                                            <div class="task-container">
-	                                                <h4 class="task-label">Do the chicken dance</h4>
-	                                                <span class="task-action-btn">
-	                                                    <span class="action-box large delete-btn" title="Delete Task">
-	                                                        <i class="icon"><i class="icon-trash"></i></i>
-	                                                    </span>
-	                                                    <span class="action-box large complete-btn" title="Mark Incomplete">
-	                                                        <i class="icon"><i class="icon-check"></i></i>
-	                                                    </span>
-	                                                </span>
-	                                            </div>
-	                                        </li>
-	                                        <li class="task">
-	                                            <div class="task-container">
-	                                                <h4 class="task-label">Pay the electricity bills</h4>
-	                                                <span class="task-action-btn">
-	                                                    <span class="action-box large delete-btn" title="Delete Task">
-	                                                        <i class="icon"><i class="icon-trash"></i></i>
-	                                                    </span>
-	                                                    <span class="action-box large complete-btn" title="Mark Complete">
-	                                                        <i class="icon"><i class="icon-check"></i></i>
-	                                                    </span>
-	                                                </span>
-	                                            </div>
-	                                        </li>
-	                                        <li class="task completed">
-	                                            <div class="task-container">
-	                                                <h4 class="task-label">Make dinner reservation</h4>
-	                                                <span class="task-action-btn">
-	                                                    <span class="action-box large delete-btn" title="Delete Task">
-	                                                        <i class="icon"><i class="icon-trash"></i></i>
-	                                                    </span>
-	                                                    <span class="action-box large complete-btn" title="Mark Complete">
-	                                                        <i class="icon"><i class="icon-check"></i></i>
-	                                                    </span>
-	                                                </span>
-	                                            </div>
-	                                        </li>
-	                                        <li class="task">
-	                                            <div class="task-container">
-	                                                <h4 class="task-label">Meeting with photographer</h4>
-	                                                <span class="task-action-btn">
-	                                                    <span class="action-box large delete-btn" title="Delete Task">
-	                                                        <i class="icon"><i class="icon-trash"></i></i>
-	                                                    </span>
-	                                                    <span class="action-box large complete-btn" title="Mark Complete">
-	                                                        <i class="icon"><i class="icon-check"></i></i>
-	                                                    </span>
-	                                                </span>
-	                                            </div>
-	                                        </li>
-	                                        <li class="task">
-	                                            <div class="task-container">
-	                                                <h4 class="task-label">Birthday wish to best friend</h4>
-	                                                <span class="task-action-btn">
-	                                                    <span class="action-box large delete-btn" title="Delete Task">
-	                                                        <i class="icon"><i class="icon-trash"></i></i>
-	                                                    </span>
-	                                                    <span class="action-box large complete-btn" title="Mark Complete">
-	                                                        <i class="icon"><i class="icon-check"></i></i>
-	                                                    </span>
-	                                                </span>
-	                                            </div>
-	                                        </li>
+										@endforeach
+	                                        
 	                                    </ul>
 	                                </div>
 	                                <div class="todo-list-footer">
