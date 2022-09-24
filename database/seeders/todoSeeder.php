@@ -16,7 +16,6 @@ class todoSeeder extends Seeder
     public function run()
     {
         $faker = Factory::create();
-        //truncate yerine delete kullansaydık veritabanındaki idler 1 den başlamazdı
         DB::table('todo')->delete();
 
         $fake_data=[];

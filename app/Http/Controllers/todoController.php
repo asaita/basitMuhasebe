@@ -13,9 +13,10 @@ class todoController extends Controller
 
         return view('to-do',compact('todolist'));
     }
-    public function sil($id=0)
+    public function sil()
     {
+        $id=$_GET['rowId'];
         todolist::findorFail($id)->delete();
-        return back();
+       return back();
     }
 }

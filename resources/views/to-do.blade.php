@@ -50,7 +50,7 @@
 										<li class="{{$item->isDone ? 'task' : 'completed task'}}">
 	                                            <div class="task-container">
 	                                                <h4 class="task-label">{{$item->todo}}</h4>
-	                                                <span class="task-action-btn">
+	                                                <span class="task-action-btn" data-id="{{$item->id}}">
 	                                                    <span class="action-box large delete-btn" title="Delete Task">
 	                                                        <i class="icon"><i class="icon-trash"></i></i>
 	                                                    </span>
@@ -82,22 +82,7 @@
 	                            <p><span class="task"></span><span class="notification-text"></span></p>
 	                        </div>
 	                    </div>
-	                    <!-- HTML Template for tasks-->
-	                    <script id="task-template" type="tect/template">
-	                        <li class="task">
-	                        <div class="task-container">
-	                        <h4 class="task-label"></h4>
-	                        <span class="task-action-btn">
-	                        <span class="action-box large delete-btn" title="Delete Task">
-	                        <i class="icon"><i class="icon-trash"></i></i>
-	                        </span>
-	                        <span class="action-box large complete-btn" title="Mark Complete">
-	                        <i class="icon"><i class="icon-check"></i></i>
-	                        </span>
-	                        </span>
-	                        </div>
-	                        </li>
-	                    </script>
+	                
 	                </div>
 	            </div>
 	        </div>
@@ -106,7 +91,7 @@
 
 	
 	@push('scripts')
-	<script src="{{asset('assets/js/todo/todo.js')}}"></script>
+		<script src="{{asset('assets/js/todo.js')}}"></script>
 	@endpush
 
 @endsection
