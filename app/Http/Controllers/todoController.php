@@ -17,6 +17,6 @@ class todoController extends Controller
     {
         $id=$_GET['rowId'];
         todolist::findorFail($id)->delete();
-       return back();
+       
     }
 }

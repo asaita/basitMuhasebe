@@ -5,15 +5,18 @@ var script = document.createElement('script');
 	
 	
 		$(document).ready(function(){
-			$('.task-action-btn').click(function(){
+			$(".action-box").css("background-color", "yellow");
+			$('.task-action-btn').on( 'click','.delete-btn',function(){
 				id = $(this).attr('data-id');
+				let url2=route('sil');
 				$.ajax({
-					url: "{{ route('sil') }}",
+					url: url2,
 					headers:{'X-CSRF-TOKEN':'{{csrf_token()}}'},
-					type:'get',
+					method:"Get",
 					data:{rowId:id},
 					success:function(response){
 						alert(id)
+						location.reload();
 					}
 
 

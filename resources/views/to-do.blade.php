@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-
+@routes
 @section('title')To-Do
  {{ $title }}
 @endsection
@@ -51,7 +51,7 @@
 	                                            <div class="task-container">
 	                                                <h4 class="task-label">{{$item->todo}}</h4>
 	                                                <span class="task-action-btn" data-id="{{$item->id}}">
-	                                                    <span class="action-box large delete-btn" title="Delete Task">
+	                                                    <span class="action-box large delete-btn" id="delete" title="Delete Task">
 	                                                        <i class="icon"><i class="icon-trash"></i></i>
 	                                                    </span>
 														
