@@ -50,12 +50,12 @@
 										<li class="{{$item->isDone ? 'task' : 'completed task'}}">
 	                                            <div class="task-container">
 	                                                <h4 class="task-label">{{$item->todo}}</h4>
-	                                                <span class="task-action-btn" data-id="{{$item->id}}">
-	                                                    <span class="action-box large delete-btn" id="delete" title="Delete Task">
+	                                                <span class="task-action-btn">
+	                                                    <span class="action-box large delete-btn" title="Delete Task"  data-id="{{$item->id}}">
 	                                                        <i class="icon"><i class="icon-trash"></i></i>
 	                                                    </span>
 														
-	                                                    <span class="action-box large complete-btn" title="Mark Complete">
+	                                                    <span class="action-box large complete-btn" title="Mark Complete" data-id="{{$item->id}}">
 	                                                        <i class="icon"><i class="icon-check"></i></i>
 	                                                    </span>
 	                                                </span>

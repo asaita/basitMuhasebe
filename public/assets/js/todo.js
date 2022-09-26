@@ -5,8 +5,25 @@ var script = document.createElement('script');
 	
 	
 		$(document).ready(function(){
-			$(".action-box").css("background-color", "yellow");
-			$('.task-action-btn').on( 'click','.delete-btn',function(){
+			//$(".action-box").css("background-color", "yellow");
+			$('.task-action-btn').on( 'click','.action-box.large.complete-btn',function(){
+				id = $(this).attr('data-id');
+				let url2=route('update');
+				$.ajax({
+					url: url2,
+					headers:{'X-CSRF-TOKEN':'{{csrf_token()}}'},
+					method:"Get",
+					data:{rowId:id},
+					success:function(response){
+						alert(id)
+						location.reload();
+					}
+
+
+				});
+				
+			});
+			$('.task-action-btn').on( 'click','.action-box.large.delete-btn',function(){
 				id = $(this).attr('data-id');
 				let url2=route('sil');
 				$.ajax({
@@ -23,6 +40,7 @@ var script = document.createElement('script');
 				});
 				
 			});
+
 			
 		}); 
 	

@@ -19,4 +19,14 @@ class todoController extends Controller
         todolist::findorFail($id)->delete();
        
     }
+    public function isdoneOrNot()
+    {
+        $id=$_GET['rowId'];
+        $isDone=todolist::findorFail($id)->isDone;
+        if ($isDone==0)
+        todolist::where('id',$id)->update(array('isdone'=>1));
+        else
+        todolist::where('id',$id)->update(array('isdone'=>0));
+       
+    }
 }
