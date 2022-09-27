@@ -29,4 +29,12 @@ class todoController extends Controller
         todolist::where('id',$id)->update(array('isdone'=>0));
        
     }
+    public function add()
+    {
+        todolist::create([
+            'todo'=>request('xx'),
+            'isDone'=>1
+        ]);  
+       return redirect()->back();
+    }
 }

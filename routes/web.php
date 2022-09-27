@@ -20,12 +20,13 @@ use Illuminate\Support\Facades\Route;
 @include_once('admin_web.php');
 
 Route::get('/', function () {
-    return redirect()->route('index');
+    return redirect()->route('to-do');
 })->name('/');
 
 Route::get('to-do',[todoController::class,'todo'])->name('to-do');
 Route::get('sil',[todoController::class,'sil'])->name('sil');
 Route::get('update',[todoController::class,'isdoneOrNot'])->name('update');
+Route::post('add',[todoController::class,'add'])->name('add');
 
 
 

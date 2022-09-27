@@ -44,6 +44,21 @@
 	                                        </span>
 	                                    </div>
 	                                </div>
+									<div class="todo-list-footer">
+										<form method="POST" action="{{route('add')}}">
+											{{ csrf_field() }}
+											<div class="add-task-btn-wrapper">
+												<span class="add-task-btn">
+													<button class="btn btn-primary" type="submit"><i class="icon-plus"></i>Yeni Görev Ekle</button>
+												</span>
+											</div>
+											<div class="new-task-wrapper visible">
+												
+												<textarea id="new-task" name="xx" placeholder="Yeni bir görev girin . ."></textarea>
+												
+											</div>
+										</form>
+	                                </div>
 	                                <div class="todo-list-body">
 	                                    <ul id="todo-list">
 										@foreach($todolist as $item)
@@ -65,17 +80,7 @@
 	                                        
 	                                    </ul>
 	                                </div>
-	                                <div class="todo-list-footer">
-	                                    <div class="add-task-btn-wrapper">
-	                                        <span class="add-task-btn">
-	                                            <button class="btn btn-primary"><i class="icon-plus"></i> Add new task</button>
-	                                        </span>
-	                                    </div>
-	                                    <div class="new-task-wrapper">
-	                                        <textarea id="new-task" placeholder="Enter new task here. . ."></textarea><span class="btn btn-danger cancel-btn" id="close-task-panel">Close</span>
-	                                        <span class="btn btn-success ms-3 add-new-task-btn" id="add-task">Add Task</span>
-	                                    </div>
-	                                </div>
+	                                
 	                            </div>
 	                        </div>
 	                        <div class="notification-popup hide">
