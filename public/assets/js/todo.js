@@ -5,7 +5,12 @@ var script = document.createElement('script');
 	
 	
 		$(document).ready(function(){
-			//$(".action-box").css("background-color", "yellow");
+			//$(".mark-all-tasks").css("background-color", "yellow");
+			
+
+			//alert(whatIsAllDuties);
+			
+			
 			$('.task-action-btn').on( 'click','.action-box.large.complete-btn',function(){
 				id = $(this).attr('data-id');
 				let url2=route('update');
@@ -23,6 +28,7 @@ var script = document.createElement('script');
 				});
 				
 			});
+
 			$('.task-action-btn').on( 'click','.action-box.large.delete-btn',function(){
 				id = $(this).attr('data-id');
 				let url2=route('sil');
@@ -40,6 +46,60 @@ var script = document.createElement('script');
 				});
 				
 			});
+			//tüm görevlerin hepsi tamamlanmışsa hepsini tamamlanmamış yap aktif oluyor
+			if (whatIsAllDuties==1) {//whatIsAllDuties veri tabanından tüm görevlerin bitip bitmediğini çekiyor
+				$(".mark-all-btn.move-down").css("display", "contents");
+				$(".mark-all-btn#mark-all-finished ").css("display", "none");
+			} else{//tüm görevler tamamlanmışsa hepsini tamamlanmamış yap aktif oluyor
+				$(".mark-all-btn#mark-all-finished ").css("display", "contents");;
+				$(".mark-all-btn.move-down").css("display", "none");
+			}
+			//Mark All as Finished
+			$('.mark-all-tasks-container').on( 'click','.mark-all-btn',function(){
+				
+				$(".mark-all-btn.move-down").css("display", "contents");
+				$(".mark-all-btn#mark-all-finished ").css("display", "none");
+							
+				let url2=route('allUpdate');
+				$.ajax({
+					url: url2,
+					headers:{'X-CSRF-TOKEN':'{{csrf_token()}}'},
+					method:"Get",
+					data:{isDone:1},
+					success:function(response){
+						
+						location.reload();
+					}
+
+
+				});
+				
+			});
+			//Mark All As Unfinished
+			$('.mark-all-tasks-container').on( 'click','.mark-all-btn.move-down',function(){
+				
+				$(".mark-all-btn#mark-all-finished ").css("display", "contents");;
+				$(".mark-all-btn.move-down").css("display", "none");
+				
+				$(".mark-all-btn").css("background-color", "yellow");
+
+				
+				let url2=route('allUpdate');
+				$.ajax({
+					url: url2,
+					headers:{'X-CSRF-TOKEN':'{{csrf_token()}}'},
+					method:"Get",
+					data:{isDone:0 },
+					success:function(response){
+						
+						location.reload();
+					}
+
+
+				});
+				
+			});
+			
 
 			
 		}); 

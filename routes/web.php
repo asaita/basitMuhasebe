@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::get('to-do',[todoController::class,'todo'])->name('to-do');
 Route::get('sil',[todoController::class,'sil'])->name('sil');
 Route::get('update',[todoController::class,'isdoneOrNot'])->name('update');
+Route::get('allUpdate',[todoController::class,'update'])->name('allUpdate');
 Route::post('add',[todoController::class,'add'])->name('add');
 
 

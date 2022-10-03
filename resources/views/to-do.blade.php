@@ -31,13 +31,13 @@
 	                                <div class="mark-all-tasks">
 	                                    <div class="mark-all-tasks-container">
 	                                        <span class="mark-all-btn" id="mark-all-finished" role="button">
-	                                            <span class="btn-label">Mark all as finished</span>
+	                                            <span class="btn-label">Hepsini tamamla</span>
 	                                            <span class="action-box completed">
 	                                                <i class="icon"><i class="icon-check"></i></i>
 	                                            </span>
 	                                        </span>
 	                                        <span class="mark-all-btn move-down" id="mark-all-incomplete" role="button">
-	                                            <span class="btn-label">Mark all as Incomplete</span>
+	                                            <span class="btn-label">Hepsini iptal et</span>
 	                                            <span class="action-box">
 	                                                <i class="icon"><i class="icon-check"></i></i>
 	                                            </span>
@@ -62,7 +62,7 @@
 	                                <div class="todo-list-body">
 	                                    <ul id="todo-list">
 										@foreach($todolist as $item)
-										<li class="{{$item->isDone ? 'task' : 'completed task'}}">
+										<li class="{{$item->isDone ? 'completed task' : 'task'}}">
 	                                            <div class="task-container">
 	                                                <h4 class="task-label">{{$item->todo}}</h4>
 	                                                <span class="task-action-btn">
@@ -97,6 +97,12 @@
 	
 	@push('scripts')
 		<script src="{{asset('assets/js/todo.js')}}"></script>
+		
 	@endpush
+
+	<script>
+		//controllerdan blade'a gönderilen veriyi json ile javasicripte göndermemizi sağlıyor
+		var whatIsAllDuties = JSON.parse("{{ json_encode($whatIsAllDuties) }}");
+	</script>
 
 @endsection
