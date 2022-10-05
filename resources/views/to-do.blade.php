@@ -44,22 +44,7 @@
 	                                        </span>
 	                                    </div>
 	                                </div>
-									<div class="todo-list-footer">
-										<form method="POST" action="{{route('add')}}">
-											{{ csrf_field() }}
-											<div class="add-task-btn-wrapper">
-												<span class="add-task-btn">
-													<button class="btn btn-primary" type="submit"><i class="icon-plus"></i>Yeni Görev Ekle</button>
-												</span>
-											</div>
-											<div class="new-task-wrapper visible">
-												
-												<textarea id="new-task" name="xx" placeholder="Yeni bir görev girin . ."></textarea>
-												
-											</div>
-										</form>
-	                                </div>
-	                                <div class="todo-list-body">
+									<div class="todo-list-body">
 	                                    <ul id="todo-list">
 										@foreach($todolist as $item)
 										<li class="{{$item->isDone ? 'completed task' : 'task'}}">
@@ -70,7 +55,7 @@
 	                                                        <i class="icon"><i class="icon-trash"></i></i>
 	                                                    </span>
 														
-	                                                    <span class="action-box large complete-btn" title="Mark Complete" data-id="{{$item->id}}">
+	                                                    <span class="action-box large complete-btn" title="{{$item->isDone==0 ? 'Tamamlanmış Olarak İşaretle' : 'Tamamlanmamış Olarak İşaretle'}}" data-id="{{$item->id}}">
 	                                                        <i class="icon"><i class="icon-check"></i></i>
 	                                                    </span>
 	                                                </span>
@@ -79,6 +64,31 @@
 										@endforeach
 	                                        
 	                                    </ul>
+										
+	                                </div>
+								
+									
+									<div class="card-body">
+										{{$todolist->links()}}			
+									</div>
+									
+
+
+									
+									<div class="todo-list-footer">
+										<form method="POST" action="{{route('add')}}">
+											{{ csrf_field() }}
+											<div class="add-task-btn-wrapper">
+												<span class="add-task-btn">
+													<button class="btn btn-primary" type="submit"><i class="icon-plus"></i>Yeni Görev Ekle</button>
+												</span>
+											</div>
+											<div class="new-task-wrapper visible">
+												
+												<textarea id="new-task" name="newTask" placeholder="Yeni bir görev girin . ."></textarea>
+												
+											</div>
+										</form>
 	                                </div>
 	                                
 	                            </div>

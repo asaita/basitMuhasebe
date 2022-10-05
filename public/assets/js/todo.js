@@ -20,7 +20,7 @@ var script = document.createElement('script');
 					method:"Get",
 					data:{rowId:id},
 					success:function(response){
-						alert(id)
+						
 						location.reload();
 					}
 
@@ -38,7 +38,7 @@ var script = document.createElement('script');
 					method:"Get",
 					data:{rowId:id},
 					success:function(response){
-						alert(id)
+						
 						location.reload();
 					}
 

@@ -9,7 +9,7 @@ class todoController extends Controller
 {
     public function todo()
     {
-        $todolist=todolist::all();
+        $todolist=todolist::paginate(5);
 
         //Eğer tüm görevler aynı ise(yapılmışsa yada yapılmamışsa) 1 değeri döcecek
         $allIsDoneSame=todolist::distinct()->count('isDone');
@@ -59,8 +59,8 @@ class todoController extends Controller
     public function add()
     {
         todolist::create([
-            'todo'=>request('xx'),
-            'isDone'=>1
+            'todo'=>request('newTask'),
+            'isDone'=>0
         ]);  
        return redirect()->back();
     }
