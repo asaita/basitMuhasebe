@@ -10,6 +10,10 @@
                     <li class="dropdown">
                         <a class="nav-link menu-title" href="{{route('to-do')}}" target="_blank"><i data-feather="home"></i><span>To-do</span></a>
                     </li>
+
+                    <li class="dropdown">
+                        <a class="nav-link menu-title" href="{{route('sign-up')}}" target="_blank"><i data-feather="home"></i><span>Register</span></a>
+                    </li>
                     
                     
                 </ul>

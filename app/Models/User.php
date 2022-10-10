@@ -12,20 +12,17 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory;
     use SoftDeletes;
-   
+    protected $table="users";
     protected $fillable = [
         'name',
+        'surname',
         'email',
         'password',
         'activation_key',
         'isActive'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
+  
     protected $hidden = [
         'password',
         'activation_key',

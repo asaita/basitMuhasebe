@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\todoController;
+use App\Http\Controllers\userController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route; 
 
@@ -24,10 +25,14 @@ Route::get('/', function () {
 })->name('/');
 
 Route::get('to-do',[todoController::class,'todo'])->name('to-do');
+Route::get('sign-up',[userController::class,'signUp'])->name('sign-up');
+Route::post('register',[userController::class,'register'])->name('register');
+
 Route::get('sil',[todoController::class,'sil'])->name('sil');
 Route::get('update',[todoController::class,'isdoneOrNot'])->name('update');
 Route::get('allUpdate',[todoController::class,'update'])->name('allUpdate');
 Route::post('add',[todoController::class,'add'])->name('add');
+
 
 
 
