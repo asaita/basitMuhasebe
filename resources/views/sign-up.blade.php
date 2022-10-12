@@ -17,15 +17,24 @@
 							{{csrf_field()}}
 	                        <h4>Hesabınızı Oluşturun</h4>
 	                        <div class="form-group">
+								@if (count($errors)>0)
+									<div class="alert alert-danger">
+										<ul>
+											@foreach ($errors->all() as $error)
+											<li>{{$error}}</li>												
+											@endforeach
+										</ul>
+									</div>									
+								@endif
 	                            <label>Ad Soyad</label>
 	                            <div class="small-group">
 	                                <div class="input-group">
 	                                    <span class="input-group-text"><i class="icon-user"></i></span>
-	                                    <input class="form-control" type="text" name="ad" required="" placeholder="Adınız" />
+	                                    <input class="form-control" type="text" name="ad" value="{{old('ad')}}" required="" placeholder="Adınız" />
 	                                </div>
 	                                <div class="input-group">
 	                                    <span class="input-group-text"><i class="icon-user"></i></span>
-	                                    <input class="form-control" type="text" name="soyad" required="" placeholder="Soyadınız" />
+	                                    <input class="form-control" type="text" name="soyad" value="{{old('soyad')}}" required="" placeholder="Soyadınız" />
 	                                </div>
 	                            </div>
 	                        </div>
@@ -33,7 +42,7 @@
 	                            <label>Email</label>
 	                            <div class="input-group">
 	                                <span class="input-group-text"><i class="icon-email"></i></span>
-	                                <input class="form-control" type="email" name ="email" required="" placeholder="Test@gmail.com" />
+	                                <input class="form-control" type="email" name ="email" value="{{old('email')}}" required="" placeholder="Test@gmail.com" />
 	                            </div>
 	                        </div>
 	                        <div class="form-group">

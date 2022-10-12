@@ -15,6 +15,13 @@ class userController extends Controller
 
     public function register(){
 
+        $this->validate(request(),[
+            'ad'=>'required',
+            'soyad'=>'required',
+            'email'=>'email|unique:users',
+            'password'=>'required|min:5|max:15'
+        ]);
+
        $newUser=User::create([
         'name'=>request('ad'),
         'surname'=>request('soyad'),
