@@ -24,9 +24,12 @@ Route::get('/', function () {
     return redirect()->route('to-do');
 })->name('/');
 
-Route::get('to-do',[todoController::class,'todo'])->name('to-do');
+Route::get('to-do',[todoController::class,'todo'])->name('to-do')->middleware('auth');
 Route::get('sign-up',[userController::class,'signUp'])->name('sign-up');
+Route::post('login',[userController::class,'login'])->name('login');
+Route::get('login',[userController::class,'loginpage'])->name('loginPage');
 Route::post('register',[userController::class,'register'])->name('register');
+Route::post('logout',[userController::class,'logout'])->name('logout');
 
 Route::get('sil',[todoController::class,'sil'])->name('sil');
 Route::get('update',[todoController::class,'isdoneOrNot'])->name('update');

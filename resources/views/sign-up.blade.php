@@ -17,15 +17,7 @@
 							{{csrf_field()}}
 	                        <h4>Hesabınızı Oluşturun</h4>
 	                        <div class="form-group">
-								@if (count($errors)>0)
-									<div class="alert alert-danger">
-										<ul>
-											@foreach ($errors->all() as $error)
-											<li>{{$error}}</li>												
-											@endforeach
-										</ul>
-									</div>									
-								@endif
+							@include('layouts.partials.errors')
 	                            <label>Ad Soyad</label>
 	                            <div class="small-group">
 	                                <div class="input-group">
@@ -59,7 +51,7 @@
 	                        </div>
 	                  
 	                        
-	                        <p>Zaten Hesabınız Var Mı?<a class="ms-2" href="#">Giriş Yap</a></p>
+	                        <p>Zaten Hesabınız Var Mı?<a class="ms-2" href="{{route('login')}}">Giriş Yap</a></p>
 	                    </form>
 	                </div>
 	            </div>

@@ -12,6 +12,34 @@ class userController extends Controller
     public function signUp(){
         return view("sign-up");
     }
+    public function loginpage(){
+        return view("login");
+    }
+
+    public function login(){
+        $this->validate(request(),[
+            'email'=>'email|required',
+            'password'=>'required'
+        ]);
+        
+        //request()->has('rememberme') beni hatırla seçildiği zaman değer true oluyor.
+        if (auth()->attempt(['email'=>request('email'),'password'=>request('password')],
+        request()->has('rememberme'))) {
+            
+            //requestimizin session bilgisini yeniliyoruz
+            request()->session()->regenerate();
+
+            //hangi sayfadan giriş yapmaya çalışıyorsak giriş yaptıktan sonra bizi o sayfaya geri
+            //yönlendirme işlemi yapıyor
+            return redirect()->intended('/');
+        } else{
+            $errors=['Email'=>'Hatalı Giriş'];
+            return back()->withErrors($errors);
+        }
+
+
+       
+    }
 
     public function register(){
 
@@ -35,5 +63,12 @@ class userController extends Controller
 
        return redirect()->route('to-do');
 
+    }
+
+    public function logout(){
+        auth()->logout();
+        request()->session()->flush();
+        request()->session()->regenerate();
+        return redirect()->route("loginPage");
     }
 }
