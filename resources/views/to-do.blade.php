@@ -64,18 +64,21 @@
 										@endforeach
 	                                        
 	                                    </ul>
+
+										
+											
+										
 										
 	                                </div>
 								
+											
 									
-									<div class="card-body">
-										{{$todolist->links()}}			
-									</div>
+									{{$todolist->links("pagination::bootstrap-4")}}
+								
 									
-
-
 									
 									<div class="todo-list-footer">
+										
 										<form method="POST" action="{{route('add')}}">
 											{{ csrf_field() }}
 											<div class="add-task-btn-wrapper">
