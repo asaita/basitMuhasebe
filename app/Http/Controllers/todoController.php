@@ -7,9 +7,13 @@ use App\Models\todolist;
 
 class todoController extends Controller
 {
+    
+
     public function todo()
     {
-        $todolist=todolist::paginate(5);
+        $userid=auth()->user()->id;
+
+        $todolist=todolist::where('user_id',$userid)->paginate(5);
 
         //Eğer tüm görevler aynı ise(yapılmışsa yada yapılmamışsa) 1 değeri döcecek
         $allIsDoneSame=todolist::distinct()->count('isDone');
@@ -58,9 +62,15 @@ class todoController extends Controller
     }
     public function add()
     {
+        $this->validate(request(),[
+            'newTask'=>'required',
+            
+        ]);
+
         todolist::create([
             'todo'=>request('newTask'),
-            'isDone'=>0
+            'isDone'=>0,
+            'user_id'=>auth()->user()->id
         ]);  
        return redirect()->back();
     }

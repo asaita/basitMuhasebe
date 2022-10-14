@@ -23,6 +23,7 @@
 	            <div class="card">
 	                <div class="card-header">
 	                    <h5>To-Do</h5>
+						@include('layouts.partials.errors')
 	                </div>
 	                <div class="card-body pt-0">
 	                    <div class="todo">
@@ -62,21 +63,13 @@
 	                                            </div>
 	                                        </li>
 										@endforeach
-	                                        
 	                                    </ul>
-
-										
-											
-										
-										
 	                                </div>
-								
-											
-									
+
 									{{$todolist->links("pagination::bootstrap-4")}}
-								
+
 									
-									
+
 									<div class="todo-list-footer">
 										
 										<form method="POST" action="{{route('add')}}">

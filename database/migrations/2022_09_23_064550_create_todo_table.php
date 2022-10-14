@@ -16,8 +16,17 @@ class CreateTodoTable extends Migration
         Schema::create('todo', function (Blueprint $table) {
             $table->id();
             $table->string('todo'); 
-            $table-> smallInteger('isDone');  
+            $table->smallInteger('isDone');  
+            $table->integer('user_id')->unsigned();
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
+
             $table->timestamps();
+
+
         });
     }
 

@@ -25,6 +25,7 @@ class todoSeeder extends Seeder
             $fake_data[]=[
                 'todo'   => $faker->unique()->sentence(),
                 'isDone'  => $faker->boolean(),
+                'user_id'=>1,
                 'created_at'=>now(),
                 'updated_at'=>now(),
             ];
