@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\todoController;
+use App\Http\Controllers\muhasebeController;
 use App\Http\Controllers\userController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route; 
@@ -21,20 +21,20 @@ use Illuminate\Support\Facades\Route;
 @include_once('admin_web.php');
 
 Route::get('/', function () {
-    return redirect()->route('to-do');
+    return redirect()->route('welcome');
 })->name('/');
 
-Route::get('to-do',[todoController::class,'todo'])->name('to-do')->middleware('auth');
+Route::get('welcome',[muhasebeController::class,'welcome'])->name('welcome')->middleware('auth');
 Route::get('sign-up',[userController::class,'signUp'])->name('sign-up');
 Route::post('login',[userController::class,'login'])->name('login');
 Route::get('login',[userController::class,'loginpage'])->name('loginPage');
 Route::post('register',[userController::class,'register'])->name('register');
 Route::post('logout',[userController::class,'logout'])->name('logout');
 
-Route::get('sil',[todoController::class,'sil'])->name('sil');
+/*Route::get('sil',[todoController::class,'sil'])->name('sil');
 Route::get('update',[todoController::class,'isdoneOrNot'])->name('update');
 Route::get('allUpdate',[todoController::class,'update'])->name('allUpdate');
-Route::post('add',[todoController::class,'add'])->name('add');
+Route::post('add',[todoController::class,'add'])->name('add'); */
 
 
 

@@ -13,7 +13,7 @@
                     </li>
                                        
                     <li class="dropdown">
-                        <a class="nav-link menu-title" href="{{route('to-do')}}" target="_blank"><i data-feather="home"></i><span>To-do</span></a>
+                        <a class="nav-link menu-title" href="{{route('welcome')}}" target="_blank"><i data-feather="home"></i><span>Ana sayfa   </span></a>
                     </li>
 
                     <li class="dropdown">

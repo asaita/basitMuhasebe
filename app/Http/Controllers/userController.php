@@ -61,7 +61,7 @@ class userController extends Controller
 
        auth()->login($newUser);
 
-       return redirect()->route('to-do');
+       return redirect()->route('welcome');
 
     }
 
